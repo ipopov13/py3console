@@ -1,0 +1,408 @@
+<html>
+<head>
+<title>The Console Module</title>
+<link rel='stylesheet' href='console.css' type='text/css' />
+</head>
+<body>
+<p>[<a href='index.html'>index</a>]</p>
+<div class='bluebox'>
+<b>Author:</b> Fredrik Lundh<br />
+<b>Copyright &copy; 1999-2000 by Fredrik Lundh</b><br />
+</div>
+<h1>The Console Module</h1>
+<p><i>[This is work in progress. Last updated December 2,
+2000]</i></p>
+
+<p>The <i>Console</i> module provides a simple console interface,
+which provides cursor-addressable text output, plus support for
+keyboard and mouse input.</p>
+
+<p>The <i>Console</i> module is currently only available for Windows
+95, 98, NT, and 2000.  It probably works under Windows XP, but it
+hasn't been tested on that platform.</p>
+
+<p>Software (including precompiled binaries) and documentation can be
+downloaded from <a href="http://effbot.org/efflib/console">
+http://effbot.org/efflib/console</a></p>
+
+<h1>Concepts</h1>
+
+<h2>Screen</h2>
+
+<p>The console screen consists of a 2-dimensional grid containing
+character cells. All characters cells have the same size.</p>
+
+<p>Each character cell has a unique coordinates. The coordinate
+origin (0, 0) is in the upper left corner, as usual.</p>
+
+<p>You can use negative coordinates as well. They work pretty much
+like negative sequence indexes in Python; for example, column -1 is
+the rightmost column on the console.</p>
+
+<p>The <b><a href="#console-rectangle-method">rectangle</a></b>
+and <b><a href="#console-save-method">save</a></b> methods
+require you to specify character rectangles. A rectangle is a tuple
+containing two coordinate pairs. The second pair of coordinates
+specify the cell just to the right and below the last cell in the
+rectangle. In other words, the rectangle (0, 0, 20, 10) is twenty
+characters wide and ten characters high.</p>
+
+<p>Note that the second coordinate must be equal to or larger than
+the first coordinate. Also, the current implementation doesn't
+support negative coordinates in rectangles.</p>
+
+<h2>Cursor</h2>
+
+<p>The console driver keeps track of the current cursor position.
+However, only three methods actually use this position: <b><a href="#console-write-method">write</a></b>, <b><a href="#console-page-method">page</a></b>, and of course <b><a href="#console-pos-method">pos</a></b>.</p>
+
+<p>The <b><a href="#console-cursor-method">cursor</a></b> method
+allows you to switch the cursor on and off.</p>
+
+<h2>Styles</h2>
+
+<p>Several methods take <b>style</b> arguments. The style is an
+integer value that combines a foreground and a background color.
+The console driver supports 16 colors in total:</p>
+
+<pre>
+0 = black (#000000)
+1 = blue (#0000a8)
+2 = dark green (#00a800)
+3 = n/a (#00a8a8)
+4 = red (#a80000)
+5 = magenta (#a800a8)
+6 = brown (#a8a800)
+7 = light grey (#a8a8a8)
+8 = dark grey (#545454)
+9 = n/a (#5454fc)
+10 = green (#54fc54)
+11 = cyan (#54fcfc)
+12 = n/a (#fc5454)
+13 = n/a (#fc54fc)
+14 = yellow (#fcfc54)
+15 = white (#fcfcfc)
+</pre>
+
+<p>To calculate the style, combine the colour for the foreground
+and background as follows:</p>
+
+<pre>
+style = foreground + background*16
+</pre>
+
+<p>The default style is light grey on black background.</p>
+
+<p><b>TBD: add names for remaining colors (see the HTML 3.2
+specification?)</b></p>
+
+<h1>The Console Class</h1>
+
+<p>To create a <b>Console</b> instance, import the <b>
+Console</b> module and call the <b><a href="#console-getconsole-method">getconsole</a></b> factory
+function.</p>
+
+<div class="example">
+<p><b>Example: Example: Using the Console module</b></p><pre>
+import Console
+
+c = Console.getconsole()
+
+c.title(&quot;Console Example&quot;)
+
+c.text(0, 0, &quot;here's some white text on white background&quot;, 0x1f)
+c.text(10, 5, &quot;line five, column ten&quot;)
+</pre>
+</div>
+
+<h2>Console Methods</h2>
+
+<p>Instances returned by <b><a href="#console-getconsole-method">
+getconsole</a></b> have the following methods:</p>
+
+<h3>Basic Graphic Methods</h3>
+
+<div class="method" name="text">
+<h3>text</h3><p><b>text(column, line, string, style)</b>
+
+</p><blockquote><p>Write <b>string</b> to the screen at the given position, using
+the given <b>style</b>. This method does not move the cursor. If
+the style is omitted, it defaults to white text on black
+background.</p>
+</blockquote></div>
+
+<div class="method" name="rectangle">
+<h3>rectangle</h3><p><b>rectangle(rect, style, character)</b>
+
+</p><blockquote><p>Blanks the given rectangle. The <b>rect</b> argument should be
+a 4-tuple. If the <b>character</b> argument is omitted, it
+defaults to space. If the <b>style</b> argument is omitted, it
+defaults to black.</p>
+</blockquote></div>
+
+<div class="method" name="scroll">
+<h3>scroll</h3><p><b>scroll(rect, dx, dy, style, character)</b>
+
+</p><blockquote><p>Moves the given rectangle <b>dx</b> cells to the right (or
+left, if dx is negative), and <b>dy</b> cells down (or up). The
+<b>style</b> and <b>character</b> attributes are used to fill
+empty regions. If the <b>character</b> argument is omitted, it
+defaults to space. If the <b>style</b> argument is omitted, it
+defaults to black.</p>
+</blockquote></div>
+
+<div class="method" name="page">
+<h3>page</h3><p><b>page()</b>
+
+</p><blockquote><p>Blanks the screen, and moves the cursor to (0, 0).</p>
+</blockquote></div>
+
+<div class="method" name="page">
+<h3>page</h3><p><b>page(style, character)</b>
+
+</p><blockquote><p>Clears the screen, using the given style and fill character. The
+style will also become the new default style. It moves the cursor
+to (0, 0).</p>
+</blockquote></div>
+
+<h3>File-Like Output</h3>
+
+<div class="method" name="write">
+<h3>write</h3><p><b>write(string)</b>
+
+</p><blockquote><p>Writes <b>string</b> at the current position, using a default
+style. This method treats the console as a conventional text
+terminal, which means that tabs, backspace, newline, and the bell
+character works as expected. The cursor is moved to the position
+just after the last written character.</p>
+</blockquote></div>
+
+<div class="method" name="pos">
+<h3>pos</h3><p><b>pos(column, line)</b>
+
+</p><blockquote><p>Moves the cursor to the given column and line. If the
+coordinates are omitted, this method returns the current cursor
+position [TBD: better name?]</p>
+</blockquote></div>
+
+<div class="attribute" name="softspace">
+<h3>softspace</h3><p><b>softspace</b>
+<i> (integer def)</i>
+
+</p><blockquote><p>This attribute isn't used by the console driver itself, but is
+there to make sure Python's <b>print</b> statement works as
+expected when printing to a console device.</p>
+
+</blockquote></div>
+
+<h3>Input</h3>
+
+<div class="method" name="get">
+<h3>get</h3><p><b>get()</b>
+<i>=&gt; event</i>
+
+</p><blockquote><p>Get the first event from the input queue. The return value is an
+instance of the <a href="#console-event-class"><b>Event</b></a>
+class. If the input queue is empty, this method blocks.</p>
+</blockquote></div>
+
+<div class="method" name="getchar">
+<h3>getchar</h3><p><b>getchar()</b>
+<i>=&gt; event</i>
+
+</p><blockquote><p>Get the first character event from the input queue, ignoring any
+other kind of event. The return value is an instance of the <a href="#console-keypress-event"><b>KeyPress</b></a> class. If the
+input queue is empty, this method blocks.</p>
+</blockquote></div>
+
+<div class="method" name="peek">
+<h3>peek</h3><p><b>peek()</b>
+<i>=&gt; event</i>
+
+</p><blockquote><p>Fetch the first event from the input queue, without removing it.
+If the input queue is empty, this method returns None.</p>
+</blockquote></div>
+
+<h3>Console Properties</h3>
+
+<div class="method" name="cursor">
+<h3>cursor</h3><p><b>cursor(flag)</b>
+
+</p><blockquote><p><b>cursor(0)</b> makes the text cursor invisible. <b> cursor(1)</b>
+makes it visible. [TBD: better name?]</p>
+
+</blockquote></div>
+
+<div class="method" name="size">
+<h3>size</h3><p><b>size()</b>
+<i>=&gt; (width, height)</i>
+
+</p><blockquote><p>Get the current size of the console window, as a 2-tuple (width,
+height).</p>
+</blockquote></div>
+
+<div class="method" name="title">
+<h3>title</h3><p><b>title(string)</b>
+
+</p><blockquote><p>Set the window title to <b>string</b>. If the string is omitted,
+this method returns the current title.</p>
+
+</blockquote></div>
+
+<div class="method" name="save">
+<h3>save</h3><p><b>save()</b>
+
+</p><blockquote><p>TBD: document save and restore.</p>
+</blockquote></div>
+
+<h2>The Event Class</h2>
+
+<p>The <b><a href="#console-get-method">get</a></b> and <tt><a href="#console-peek-method">peek</a></tt> methods return event
+descriptors. These are modelled after the Tkinter <b>Event</b>
+type, with a few minor differences.</p>
+
+<h3>Event Subtypes</h3>
+
+<p>Note: In the current release, all event objects are implemented
+using the same Python type. To check what kind of event you have,
+use the <a href="#console-event-type-attribute">type</a>
+attribute.</p>
+
+<h4>KeyPress</h4>
+
+<h4>KeyRelease</h4>
+
+<h4>ButtonPress</h4>
+
+<h4>ButtonRelease</h4>
+
+<h4>Motion</h4>
+
+<h4>Configure</h4>
+
+<h3>Event Attributes</h3>
+
+<div class="attribute" name="type">
+<h3>type</h3><p><b>type</b>
+<i> (string)</i>
+
+</p><blockquote><p>The event type, given as a string. This attribute contains one
+of <a href="#console-keypress-event"><b>KeyPress</b></a>, <a href="#console-keyrelease-event"><b>KeyRelease</b></a>, <a href="#console-buttonpress-event"><b>ButtonPress</b></a>, <a href="#console-buttonrelease-event"><b>ButtonRelease</b></a>, <a href="#console-motion-event"><b>Motion</b></a>, or <a href="#console-configure-event"><b>Configure</b></a>. Other event
+types may be returned, but such events should always be ignored by
+the application.</p>
+</blockquote></div>
+
+<div class="attribute" name="char">
+<h3>char</h3><p><b>char</b>
+<i> (string)</i>
+
+</p><blockquote><p>The character code for <a href="#console-keypress-event"><b>
+KeyPress</b></a> or <a href="#console-keyrelease-event"><b>
+KeyRelease</b></a> events. If this is empty, the event doesn't
+have an ASCII representation.</p>
+</blockquote></div>
+
+<div class="attribute" name="keycode">
+<h3>keycode</h3><p><b>keycode</b>
+<i> (integer)</i>
+
+</p><blockquote><p>The numerical keycode for <a href="#console-keypress-event"><b>
+KeyPress</b></a> or <a href="#console-keyrelease-event"><b>
+KeyRelease</b></a> events.</p>
+</blockquote></div>
+
+<div class="attribute" name="keysym">
+<h3>keysym</h3><p><b>keysym</b>
+<i> (string)</i>
+
+</p><blockquote><p>The symbolic name for <a href="#console-keypress-event"><b>
+KeyPress</b></a> or <a href="#console-keyrelease-event"><b>
+KeyRelease</b></a> events. If this is an empty string, this event
+doesn't have a symbolic name.</p>
+</blockquote></div>
+
+<div class="attribute" name="state">
+<h3>state</h3><p><b>state</b>
+<i> (integer)</i>
+
+</p><blockquote><p>The button and control key state. This is valid for <a href="#console-keypress-event"><b>KeyPress</b></a>, <a href="#console-keyrelease-event"><b>KeyRelease</b></a>, <a href="#console-buttonpress-event"><b>ButtonPress</b></a>, <a href="#console-buttonrelease-event"><b>ButtonRelease</b></a>, and
+<a href="#console-motion-event"><b>Motion</b></a> events.</p>
+</blockquote></div>
+
+<div class="attribute" name="x, y">
+<h3>x, y</h3><p><b>x</b>
+<i> (integer)</i>
+</p><p><b>y</b>
+<i> (integer)</i>
+
+</p><blockquote><p>The current mouse coordinate. This is valid for <a href="#console-buttonpress-event"><b>ButtonPress</b></a>, <a href="#console-buttonrelease-event"><b>ButtonRelease</b></a>, and
+<a href="#console-motion-event"><b>Motion</b></a> events.</p>
+</blockquote></div>
+
+<div class="attribute" name="width, height">
+<h3>width, height</h3><p><b>width</b>
+<i> (integer)</i>
+</p><p><b>height</b>
+<i> (integer)</i>
+
+</p><blockquote><p>The new window size. This is only valid for <a href="#console-configure-event"><b>Configure</b></a> events.</p>
+</blockquote></div>
+
+<div class="attribute" name="serial">
+<h3>serial</h3><p><b>serial</b>
+<i> (integer)</i>
+
+</p><blockquote><p><b>serial</b> is the serial number for this event.</p>
+</blockquote></div>
+
+<div class="attribute" name="time">
+<h3>time</h3><p><b>time</b>
+<i> (integer)</i>
+
+</p><blockquote><p>The relative time in milliseconds when this event was generated.
+In the current implementation, this is always 0.</p>
+</blockquote></div>
+
+<div class="attribute" name="widget">
+<h3>widget</h3><p><b>widget</b>
+<i> (widget or None)</i>
+
+</p><blockquote><p>The widget that generated this event. Unless you're using <b>
+uiToolkit/Text</b> or another console widget toolkit built on top
+of this module, this is always <b>None</b>.</p>
+</blockquote></div>
+
+<h1>License</h1>
+
+<p>The <i>Console</i> module was written by Fredrik Lundh at Secret
+Labs AB, in January 1999.</p>
+
+<blockquote>
+Copyright &copy; 1999-2000 by Secret Labs AB<br />
+Copyright &copy; 1999-2000 by Fredrik Lundh
+</blockquote>
+
+<p>By obtaining, using, and/or copying this software and/or its
+associated documentation, you agree that you have read, understood,
+and will comply with the following terms and conditions:</p>
+
+<p>Permission to use, copy, modify, and distribute this software
+and its associated documentation for any purpose and without fee is
+hereby granted, provided that the above copyright notice appears in
+all copies, and that both that copyright notice and this permission
+notice appear in supporting documentation, and that the name of
+Secret Labs AB or the author not be used in advertising or
+publicity pertaining to distribution of the software without
+specific, written prior permission.</p>
+
+<p>SECRET LABS AB AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL SECRET LABS AB OR
+THE AUTHOR BE LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL
+DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA
+OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.</p>
+
+</body>
+</html>

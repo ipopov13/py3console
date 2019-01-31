@@ -1,0 +1,77 @@
+$Id: //modules/console/README#5 $
+
+==================
+The console module
+==================
+
+This kit contains a simple console interface for Windows 9X/NT/2K/XP.
+It provides a cursor-addressable text display, plus support for
+keyboard and mouse input.
+
+The console interface also comes with a command editing and history
+implementation (readline) for Windows platforms.
+
+Enjoy /F
+
+fredrik@pythonware.com
+http://www.pythonware.com
+
+--------------------------------------------------------------------
+The Windows Console Interface is
+
+Copyright (c) 1999-2001 by Secret Labs AB
+Copyright (c) 1999-2001 by Fredrik Lundh
+
+By obtaining, using, and/or copying this software and/or its
+associated documentation, you agree that you have read, understood,
+and will comply with the following terms and conditions:
+
+Permission to use, copy, modify, and distribute this software and its
+associated documentation for any purpose and without fee is hereby
+granted, provided that the above copyright notice appears in all
+copies, and that both that copyright notice and this permission notice
+appear in supporting documentation, and that the name of Secret Labs
+AB or the author not be used in advertising or publicity pertaining to
+distribution of the software without specific, written prior
+permission.
+
+SECRET LABS AB AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO
+THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS.  IN NO EVENT SHALL SECRET LABS AB OR THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT
+OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+--------------------------------------------------------------------
+
+release info
+------------
+
+This is the second public release.
+
+Comments, bug reports, and patches are welcome.  Send them to
+fredrik@pythonware.com.
+
+Note that this is free software, with limited support.  If you need
+commercial support on this module, please contact info@pythonware.com.
+
+contents
+--------
+
+README		  this file
+
+Console.htm	  documentation
+
+_wincon.c	  the low-level driver for Win32
+
+Console.py	  high-level interface
+
+readline.py	  (experimental) command history and editing for Windows.
+		  to enable this module, just put it on the Python path.
+
+setup.py	  build/installation script
+
+*.html            documentation
+
+demo*.py	  various demo and test scripts	
+tests/*.py
