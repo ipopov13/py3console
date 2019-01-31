@@ -738,7 +738,7 @@ static PyObject*
 console_getattr(ConsoleObject* self, char* name)
 {
     if (name[0] == 's' && strcmp(name, "softspace") == 0)
-	  return PyInt_FromLong(self->softspace);
+	  return PyLong_FromLong(self->softspace);
 
     return Py_FindMethod(console_methods, (PyObject*) self, name);
 }
@@ -756,7 +756,7 @@ console_setattr(ConsoleObject* self, char* name, PyObject* value)
 
     if (!strcmp(name, "softspace")) {
 	long v;
-	v = PyInt_AsLong(value);
+	v = PyLong_AsLong(value);
 	if (v == -1 && PyErr_Occurred())
             return -1;
 	self->softspace = v;
@@ -787,18 +787,18 @@ static PyTypeObject Console_Type = {
 
 static struct memberlist
 event_members[] = {
-    {"type", T_STRING, EVENT_OFF(type), RO},
-    {"keycode", T_INT, EVENT_OFF(keycode), RO},
-    {"keysym", T_STRING, EVENT_OFF(keysym), RO},
-    {"char", T_STRING, EVENT_OFF(char_), RO},
-    {"state", T_INT, EVENT_OFF(state), RO},
-    {"x", T_INT, EVENT_OFF(x), RO},
-    {"y", T_INT, EVENT_OFF(y), RO},
-    {"width", T_INT, EVENT_OFF(width), RO},
-    {"height", T_INT, EVENT_OFF(height), RO},
+    {"type", T_STRING, EVENT_OFF(type), READONLY},
+    {"keycode", T_INT, EVENT_OFF(keycode), READONLY},
+    {"keysym", T_STRING, EVENT_OFF(keysym), READONLY},
+    {"char", T_STRING, EVENT_OFF(char_), READONLY},
+    {"state", T_INT, EVENT_OFF(state), READONLY},
+    {"x", T_INT, EVENT_OFF(x), READONLY},
+    {"y", T_INT, EVENT_OFF(y), READONLY},
+    {"width", T_INT, EVENT_OFF(width), READONLY},
+    {"height", T_INT, EVENT_OFF(height), READONLY},
     {"widget", T_OBJECT, EVENT_OFF(widget)},
-    {"serial", T_INT, EVENT_OFF(serial), RO},
-    {"time", T_INT, EVENT_OFF(time), RO},
+    {"serial", T_INT, EVENT_OFF(serial), READONLY},
+    {"time", T_INT, EVENT_OFF(time), READONLY},
     {NULL}
 };
 
