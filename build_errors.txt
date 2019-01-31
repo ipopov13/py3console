@@ -1,4 +1,5 @@
 See http://python3porting.com/cextensions.html for instructions!
+https://mail.python.org/pipermail/python-checkins/2012-January/110309.html
 
 running install
 running build
@@ -7,30 +8,28 @@ running build_ext
 building '_wincon' extension
 C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\bin\HostX86\x64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -IC:\Users\IvanPopov\Anaconda3\include -IC:\Users\IvanPopov\Anaconda3\include "-IC:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\include" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" /Tc_wincon.c /Fobuild\temp.win-amd64-3.6\Release\_wincon.obj
 _wincon.c
-_wincon.c(743): warning C4013: 'Py_FindMethod' undefined; assuming extern returning int
-_wincon.c(743): warning C4047: 'return': 'PyObject *' differs in levels of indirection from 'int'
 _wincon.c(770): warning C4047: 'initializing': 'Py_ssize_t' differs in levels of indirection from 'char [8]'
 _wincon.c(770): warning C4113: 'destructor' differs in parameter lists from 'printfunc'
 _wincon.c(770): warning C4133: 'initializing': incompatible types - from 'destructor' to 'printfunc'
 _wincon.c(770): warning C4113: 'getattrfunc' differs in parameter lists from 'setattrfunc'
 _wincon.c(770): warning C4047: 'initializing': 'setattrfunc' differs in levels of indirection from 'getattrfunc'
 _wincon.c(770): warning C4047: 'initializing': 'PyAsyncMethods *' differs in levels of indirection from 'setattrfunc'
-_wincon.c(789): error C2079: 'event_members' uses undefined struct 'memberlist'
-_wincon.c(803): error C2078: too many initializers
-_wincon.c(789): error C2078: too many initializers
-_wincon.c(790): warning C4047: 'initializing': 'int' differs in levels of indirection from 'char [5]'
-_wincon.c(808): warning C4013: 'PyMember_Get' undefined; assuming extern returning int
-_wincon.c(808): warning C4047: 'return': 'PyObject *' differs in levels of indirection from 'int'
-_wincon.c(814): warning C4013: 'PyMember_Set' undefined; assuming extern returning int
-_wincon.c(826): warning C4311: 'type cast': pointer truncation from 'EventObject *' to 'long'
-_wincon.c(831): warning C4047: 'initializing': 'Py_ssize_t' differs in levels of indirection from 'char [6]'
-_wincon.c(831): warning C4113: 'destructor' differs in parameter lists from 'printfunc'
-_wincon.c(831): warning C4133: 'initializing': incompatible types - from 'destructor' to 'printfunc'
-_wincon.c(831): warning C4113: 'getattrfunc' differs in parameter lists from 'setattrfunc'
-_wincon.c(831): warning C4047: 'initializing': 'setattrfunc' differs in levels of indirection from 'getattrfunc'
-_wincon.c(831): warning C4047: 'initializing': 'PyAsyncMethods *' differs in levels of indirection from 'setattrfunc'
-_wincon.c(831): warning C4047: 'initializing': 'PyNumberMethods *' differs in levels of indirection from 'reprfunc'
-_wincon.c(831): fatal error C1903: unable to recover from previous error(s); stopping compilation
+_wincon.c(788): error C2079: 'event_members' uses undefined struct 'memberlist'
+_wincon.c(802): error C2078: too many initializers
+_wincon.c(788): error C2078: too many initializers
+_wincon.c(789): warning C4047: 'initializing': 'int' differs in levels of indirection from 'char [5]'
+_wincon.c(807): warning C4013: 'PyMember_Get' undefined; assuming extern returning int
+_wincon.c(807): warning C4047: 'return': 'PyObject *' differs in levels of indirection from 'int'
+_wincon.c(813): warning C4013: 'PyMember_Set' undefined; assuming extern returning int
+_wincon.c(825): warning C4311: 'type cast': pointer truncation from 'EventObject *' to 'long'
+_wincon.c(830): warning C4047: 'initializing': 'Py_ssize_t' differs in levels of indirection from 'char [6]'
+_wincon.c(830): warning C4113: 'destructor' differs in parameter lists from 'printfunc'
+_wincon.c(830): warning C4133: 'initializing': incompatible types - from 'destructor' to 'printfunc'
+_wincon.c(830): warning C4113: 'getattrfunc' differs in parameter lists from 'setattrfunc'
+_wincon.c(830): warning C4047: 'initializing': 'setattrfunc' differs in levels of indirection from 'getattrfunc'
+_wincon.c(830): warning C4047: 'initializing': 'PyAsyncMethods *' differs in levels of indirection from 'setattrfunc'
+_wincon.c(830): warning C4047: 'initializing': 'PyNumberMethods *' differs in levels of indirection from 'reprfunc'
+_wincon.c(830): fatal error C1903: unable to recover from previous error(s); stopping compilation
 Internal Compiler Error in C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\bin\HostX86\x64\cl.exe.  You will be prompted to send an error report to Microsoft later.
 INTERNAL COMPILER ERROR in 'C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\bin\HostX86\x64\cl.exe'
     Please choose the Technical Support command on the Visual C++

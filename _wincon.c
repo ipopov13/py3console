@@ -740,7 +740,7 @@ console_getattr(ConsoleObject* self, char* name)
     if (name[0] == 's' && strcmp(name, "softspace") == 0)
 	  return PyLong_FromLong(self->softspace);
 
-    return Py_FindMethod(console_methods, (PyObject*) self, name);
+    return PyObject_GenericGetAttr((PyObject*) self,(PyObject*)  name);
 }
 
 static int
@@ -785,8 +785,7 @@ static PyTypeObject Console_Type = {
 
 #define EVENT_OFF(x) offsetof(EventObject, x)
 
-static struct memberlist
-event_members[] = {
+static struct memberlist event_members[] = {
     {"type", T_STRING, EVENT_OFF(type), READONLY},
     {"keycode", T_INT, EVENT_OFF(keycode), READONLY},
     {"keysym", T_STRING, EVENT_OFF(keysym), READONLY},
