@@ -959,7 +959,7 @@ static struct PyModuleDef moduledef = {
 
 //DL_EXPORT(void)
 PyMODINIT_FUNC
-PyInit_wincon(void)
+PyInit__wincon(void)
 {
     /* Patch object type 
     Py_TYPE(Console_Type) = &PyType_Type;

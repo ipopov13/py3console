@@ -21,6 +21,7 @@ _wincon.c(893): warning C4047: 'function': 'const char *' differs in levels of i
 _wincon.c(893): warning C4024: 'strdup': different types for formal and actual parameter 1
 _wincon.c(930): warning C4113: 'char *(__cdecl *)(char *)' differs in parameter lists from 'char *(__cdecl *)(FILE *,FILE *,const char *)'
 C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\bin\HostX86\x64\link.exe /nologo /INCREMENTAL:NO /LTCG /DLL /MANIFEST:EMBED,ID=2 /MANIFESTUAC:NO /LIBPATH:C:\Users\IvanPopov\Anaconda3\libs /LIBPATH:C:\Users\IvanPopov\Anaconda3\PCbuild\amd64 "/LIBPATH:C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\lib\x64" "/LIBPATH:C:\Program Files (x86)\Windows Kits\10\lib\10.0.17134.0\ucrt\x64" "/LIBPATH:C:\Program Files (x86)\Windows Kits\10\lib\10.0.17134.0\um\x64" /EXPORT:PyInit__wincon build\temp.win-amd64-3.6\Release\_wincon.obj /OUT:build\lib.win-amd64-3.6\_wincon.cp36-win_amd64.pyd /IMPLIB:build\temp.win-amd64-3.6\Release\_wincon.cp36-win_amd64.lib
-LINK : error LNK2001: unresolved external symbol PyInit__wincon
-build\temp.win-amd64-3.6\Release\_wincon.cp36-win_amd64.lib : fatal error LNK1120: 1 unresolved externals
+   Creating library build\temp.win-amd64-3.6\Release\_wincon.cp36-win_amd64.lib and object build\temp.win-amd64-3.6\Release\_wincon.cp36-win_amd64.exp
+_wincon.obj : error LNK2001: unresolved external symbol PyUnicode_AsString
+build\lib.win-amd64-3.6\_wincon.cp36-win_amd64.pyd : fatal error LNK1120: 1 unresolved externals
 error: command 'C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\BuildTools\\VC\\Tools\\MSVC\\14.14.26428\\bin\\HostX86\\x64\\link.exe' failed with exit status 1120
