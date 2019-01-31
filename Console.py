@@ -43,19 +43,22 @@ def getconsole(buffer=1):
     If buffer is non-zero, a new console buffer is allocated and
     installed.  Otherwise, this returns a handle to the current
     console buffer"""
-
     c = Console(buffer)
-
+    print("Init class done...")
     # try to redirect stdout and stderr
     try:
+        print("Trying stdout...",sys.stdout.isatty())
         if sys.stdout.isatty():
             sys.stdout = c
     except:
-        pass
+        print("Failed stdout!")
+        raise
     try:
+        print("Trying stderr...", sys.stderr.isatty())
         if sys.stderr.isatty():
             sys.stderr = c
     except:
-        pass
+        print("Failed stderr!")
+        raise
 
     return c

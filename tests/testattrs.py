@@ -7,8 +7,10 @@
 
 import Console
 
+print("Imported, getting console...")
 c = Console.getconsole()
 
+print("Gotten it, working...")
 INK = 0x1f
 
 c.title("Console Attributes")
@@ -32,8 +34,8 @@ c.text(0, 1, chr(0xcd) * 80, INK)
 
 for x in range(16):
     for y in range(16):
-	attribute = x*16+y
-	c.text(x*5, y+2, " %02x " % attribute, attribute)
+        attribute = x*16+y
+        c.text(x*5, y+2, " %02x " % attribute, attribute)
 
 c.pos(0, -2)
 
