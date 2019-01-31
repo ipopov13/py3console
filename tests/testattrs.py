@@ -15,6 +15,7 @@ INK = 0x1f
 
 c.title("Console Attributes")
 
+print("Set title")
 c.page(INK)
 
 c.text(0, 0, chr(0xfe) + " Console Attributes " + chr(0xfe), INK)

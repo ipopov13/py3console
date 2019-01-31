@@ -46,19 +46,19 @@ def getconsole(buffer=1):
     c = Console(buffer)
     print("Init class done...")
     # try to redirect stdout and stderr
-    try:
-        print("Trying stdout...",sys.stdout.isatty())
-        if sys.stdout.isatty():
-            sys.stdout = c
-    except:
-        print("Failed stdout!")
-        raise
-    try:
-        print("Trying stderr...", sys.stderr.isatty())
-        if sys.stderr.isatty():
-            sys.stderr = c
-    except:
-        print("Failed stderr!")
-        raise
+#    try:
+#        print("Trying stdout...",sys.stdout.isatty())
+#        if sys.stdout.isatty():
+#            sys.stdout = c
+#    except:
+#        print("Failed stdout!")
+#        raise
+#    try:
+#        print("Trying stderr...", sys.stderr.isatty())
+#        if sys.stderr.isatty():
+#            sys.stderr = c
+#    except:
+#        print("Failed stderr!")
+#        raise
 
     return c
