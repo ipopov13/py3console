@@ -12,7 +12,6 @@ _wincon.c(789): error C2079: 'event_members' uses undefined struct 'memberlist'
 _wincon.c(803): error C2078: too many initializers
 _wincon.c(789): error C2078: too many initializers
 _wincon.c(790): warning C4047: 'initializing': 'int' differs in levels of indirection from 'char [5]'
-_wincon.c(815): warning C4013: 'PyMember_Set' undefined; assuming extern returning int
 _wincon.c(827): warning C4311: 'type cast': pointer truncation from 'EventObject *' to 'long'
 _wincon.c(832): warning C4047: 'initializing': 'Py_ssize_t' differs in levels of indirection from 'char [6]'
 _wincon.c(832): warning C4113: 'destructor' differs in parameter lists from 'printfunc'

@@ -812,7 +812,7 @@ event_getattr(ConsoleObject* self, char* name)
 static int
 event_setattr(ConsoleObject* self, char* name, PyObject* value)
 {
-    return PyMember_Set((char*)self, event_members, name, value);
+    return PyMember_SetOne((char*)self, (PyMemberDef *)  name, value);
 }
 
 static PyObject *
