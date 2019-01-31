@@ -80,7 +80,7 @@ def main():
         n = int(sys.argv[1])
     q = Queens(n)
     q.solve()
-    print "Found", q.nfound, "solutions."
+    print("Found", q.nfound, "solutions.")
 
 if __name__ == "__main__":
     main()

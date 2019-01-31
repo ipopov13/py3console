@@ -31,7 +31,7 @@ try:
     else:
         from _cursescon import Console
 except ImportError:
-    raise ImportError, "installation error: cannot find a console driver"
+    raise ImportError("installation error: cannot find a console driver")
 
 #
 # console factory (if you don't want to redirect stdout/stderr,

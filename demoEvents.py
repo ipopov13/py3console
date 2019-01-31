@@ -19,5 +19,5 @@ while 1:
     e = c.get()
     d = {}
     for m in e.__members__:
-	d[m] = getattr(e, m)
-    print d
+        d[m] = getattr(e, m)
+        print d
