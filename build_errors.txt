@@ -7,7 +7,6 @@ running build_ext
 building '_wincon' extension
 C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\bin\HostX86\x64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -IC:\Users\IvanPopov\Anaconda3\include -IC:\Users\IvanPopov\Anaconda3\include "-IC:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\include" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" /Tc_wincon.c /Fobuild\temp.win-amd64-3.6\Release\_wincon.obj
 _wincon.c
-_wincon.c(418): warning C4013: 'PyArg_NoArgs' undefined; assuming extern returning int
 _wincon.c(743): warning C4013: 'Py_FindMethod' undefined; assuming extern returning int
 _wincon.c(743): warning C4047: 'return': 'PyObject *' differs in levels of indirection from 'int'
 _wincon.c(770): warning C4047: 'initializing': 'Py_ssize_t' differs in levels of indirection from 'char [8]'

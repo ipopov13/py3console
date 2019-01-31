@@ -415,7 +415,7 @@ console_home(ConsoleObject* self, PyObject* args)
 {
     /* convenience: same as pos(0, 0) */
 
-    if (!PyArg_NoArgs(args))
+    if (!PyArg_ParseTuple(args,""))
         return NULL;
 
     return fixstatus(SetConsoleCursorPosition(
@@ -576,7 +576,7 @@ console_get(ConsoleObject* self, PyObject* args)
     DWORD count = 0;
     int status;
 
-    if (!PyArg_NoArgs(args))
+    if (!PyArg_ParseTuple(args,""))
         return NULL;
 
     status = ReadConsoleInput(self->in, &event, 1, &count);
@@ -596,7 +596,7 @@ console_getchar(ConsoleObject* self, PyObject* args)
     DWORD count = 0;
     int status;
 
-    if (!PyArg_NoArgs(args))
+    if (!PyArg_ParseTuple(args,""))
         return NULL;
 
     for (;;) {
@@ -625,7 +625,7 @@ console_peek(ConsoleObject* self, PyObject* args)
     DWORD count = 0;
     int status;
 
-    if (!PyArg_NoArgs(args))
+    if (!PyArg_ParseTuple(args,""))
         return NULL;
 
     status = PeekConsoleInput(self->in, &event, 1, &count);
@@ -768,7 +768,7 @@ console_setattr(ConsoleObject* self, char* name, PyObject* value)
 }
 
 static PyTypeObject Console_Type = {
-    PyObject_HEAD_INIT(NULL)
+    PyVarObject_HEAD_INIT(NULL, 0)
     0, /* ob_size */
     "Console", /* tp_name */
     sizeof(ConsoleObject), /* tp_size */
@@ -829,7 +829,7 @@ event_repr(EventObject* self)
 }
 
 static PyTypeObject Event_Type = {
-    PyObject_HEAD_INIT(NULL)
+    PyVarObject_HEAD_INIT(NULL, 0)
     0, /* ob_size */
     "Event", /* tp_name */
     sizeof(EventObject), /* tp_size */
