@@ -771,7 +771,6 @@ static PyTypeObject Console_Type = {
     PyVarObject_HEAD_INIT(NULL, 0)
     "Console", /* tp_name */
     0, /* tp_itemsize */
-    //0, /* ob_size */
     sizeof(ConsoleObject), /* tp_size */
     /* methods */
     (destructor)console_dealloc, /* tp_dealloc */
@@ -831,10 +830,9 @@ event_repr(EventObject* self)
 
 static PyTypeObject Event_Type = {
     PyVarObject_HEAD_INIT(NULL, 0)
-    0, /* ob_size */
     "Event", /* tp_name */
-    sizeof(EventObject), /* tp_size */
     0, /* tp_itemsize */
+    sizeof(EventObject), /* tp_size */
     /* methods */
     (destructor)event_dealloc, /* tp_dealloc */
     NULL, /* tp_print */

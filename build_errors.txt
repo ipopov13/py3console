@@ -1,23 +1,23 @@
 See http://python3porting.com/cextensions.html for instructions!
 https://mail.python.org/pipermail/python-checkins/2012-January/110309.html
 
+Only an exception raise in Console left to fix syntax, fix warnings first!!!
+
 running install
 running build
 running build_py
+creating build
+creating build\lib.win-amd64-3.6
+copying Console.py -> build\lib.win-amd64-3.6
 running build_ext
 building '_wincon' extension
+creating build\temp.win-amd64-3.6
+creating build\temp.win-amd64-3.6\Release
 C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\bin\HostX86\x64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -IC:\Users\IvanPopov\Anaconda3\include -IC:\Users\IvanPopov\Anaconda3\include "-IC:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\include" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" /Tc_wincon.c /Fobuild\temp.win-amd64-3.6\Release\_wincon.obj
 _wincon.c
-_wincon.c(827): warning C4311: 'type cast': pointer truncation from 'EventObject *' to 'long'
-_wincon.c(832): warning C4047: 'initializing': 'Py_ssize_t' differs in levels of indirection from 'char [6]'
-_wincon.c(832): warning C4113: 'destructor' differs in parameter lists from 'printfunc'
-_wincon.c(832): warning C4133: 'initializing': incompatible types - from 'destructor' to 'printfunc'
-_wincon.c(832): warning C4113: 'getattrfunc' differs in parameter lists from 'setattrfunc'
-_wincon.c(832): warning C4047: 'initializing': 'setattrfunc' differs in levels of indirection from 'getattrfunc'
-_wincon.c(832): warning C4047: 'initializing': 'PyAsyncMethods *' differs in levels of indirection from 'setattrfunc'
-_wincon.c(832): warning C4047: 'initializing': 'PyNumberMethods *' differs in levels of indirection from 'reprfunc'
-_wincon.c(893): warning C4133: 'function': incompatible types - from 'PyObject *' to 'const char *'
-_wincon.c(930): warning C4113: 'char *(__cdecl *)(char *)' differs in parameter lists from 'char *(__cdecl *)(FILE *,FILE *,const char *)'
+_wincon.c(826): warning C4311: 'type cast': pointer truncation from 'EventObject *' to 'long'
+_wincon.c(891): warning C4133: 'function': incompatible types - from 'PyObject *' to 'const char *'
+_wincon.c(928): warning C4113: 'char *(__cdecl *)(char *)' differs in parameter lists from 'char *(__cdecl *)(FILE *,FILE *,const char *)'
 C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\bin\HostX86\x64\link.exe /nologo /INCREMENTAL:NO /LTCG /DLL /MANIFEST:EMBED,ID=2 /MANIFESTUAC:NO /LIBPATH:C:\Users\IvanPopov\Anaconda3\libs /LIBPATH:C:\Users\IvanPopov\Anaconda3\PCbuild\amd64 "/LIBPATH:C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\lib\x64" "/LIBPATH:C:\Program Files (x86)\Windows Kits\10\lib\10.0.17134.0\ucrt\x64" "/LIBPATH:C:\Program Files (x86)\Windows Kits\10\lib\10.0.17134.0\um\x64" /EXPORT:PyInit__wincon build\temp.win-amd64-3.6\Release\_wincon.obj /OUT:build\lib.win-amd64-3.6\_wincon.cp36-win_amd64.pyd /IMPLIB:build\temp.win-amd64-3.6\Release\_wincon.cp36-win_amd64.lib
    Creating library build\temp.win-amd64-3.6\Release\_wincon.cp36-win_amd64.lib and object build\temp.win-amd64-3.6\Release\_wincon.cp36-win_amd64.exp
 Generating code
@@ -28,7 +28,6 @@ copying demoAttributes.py -> build\scripts-3.6
 copying demoEvents.py -> build\scripts-3.6
 copying demoQueens.py -> build\scripts-3.6
 running install_lib
-copying build\lib.win-amd64-3.6\Console.py -> C:\Users\IvanPopov\Anaconda3\Lib\site-packages
 copying build\lib.win-amd64-3.6\_wincon.cp36-win_amd64.pyd -> C:\Users\IvanPopov\Anaconda3\Lib\site-packages
 byte-compiling C:\Users\IvanPopov\Anaconda3\Lib\site-packages\Console.py to Console.cpython-36.pyc
   File "C:\Users\IvanPopov\Anaconda3\Lib\site-packages\Console.py", line 34
@@ -37,8 +36,6 @@ byte-compiling C:\Users\IvanPopov\Anaconda3\Lib\site-packages\Console.py to Cons
 SyntaxError: invalid syntax
 
 running install_scripts
-copying build\scripts-3.6\demoAttributes.py -> C:\Users\IvanPopov\Anaconda3\Scripts
-copying build\scripts-3.6\demoEvents.py -> C:\Users\IvanPopov\Anaconda3\Scripts
-copying build\scripts-3.6\demoQueens.py -> C:\Users\IvanPopov\Anaconda3\Scripts
 running install_egg_info
+Removing C:\Users\IvanPopov\Anaconda3\Lib\site-packages\console-1.1a1_20011229-py3.6.egg-info
 Writing C:\Users\IvanPopov\Anaconda3\Lib\site-packages\console-1.1a1_20011229-py3.6.egg-info
