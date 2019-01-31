@@ -805,7 +805,8 @@ event_members[] = {
 static PyObject*  
 event_getattr(ConsoleObject* self, char* name)
 {
-    return PyMember_Get((char*)self, event_members, name);
+    //return PyMember_GetOne((char*)self, event_members, name);
+    return PyMember_GetOne((char*)self, (PyMemberDef *) name);
 }
 
 static int
