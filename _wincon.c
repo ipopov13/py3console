@@ -957,9 +957,14 @@ static struct PyModuleDef moduledef = {
         NULL,                /* m_free */
 };
 
-static PyObject *
-moduleinit(void)
+//DL_EXPORT(void)
+PyMODINIT_FUNC
+PyInit_wincon(void)
 {
+    /* Patch object type 
+    Py_TYPE(Console_Type) = &PyType_Type;
+    Py_TYPE(Event_Type) = &PyType_Type; */
+
     PyObject *m;
 
     m = PyModule_Create(&moduledef);
@@ -968,15 +973,4 @@ moduleinit(void)
         return NULL;
 		
   return m;
-}
-
-//DL_EXPORT(void)
-PyMODINIT_FUNC
-PyInit_wincon(void)
-{
-    // Patch object type 
-    Console_Type.ob_type = &PyType_Type;
-    Event_Type.ob_type = &PyType_Type;
-
-    moduleinit();
 }
