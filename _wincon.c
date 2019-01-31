@@ -769,10 +769,10 @@ console_setattr(ConsoleObject* self, char* name, PyObject* value)
 
 static PyTypeObject Console_Type = {
     PyVarObject_HEAD_INIT(NULL, 0)
-    0, /* ob_size */
     "Console", /* tp_name */
-    sizeof(ConsoleObject), /* tp_size */
     0, /* tp_itemsize */
+    //0, /* ob_size */
+    sizeof(ConsoleObject), /* tp_size */
     /* methods */
     (destructor)console_dealloc, /* tp_dealloc */
     NULL, /* tp_print */
@@ -785,7 +785,8 @@ static PyTypeObject Console_Type = {
 
 #define EVENT_OFF(x) offsetof(EventObject, x)
 
-static struct memberlist event_members[] = {
+static struct memberlist
+event_members[] = {
     {"type", T_STRING, EVENT_OFF(type), READONLY},
     {"keycode", T_INT, EVENT_OFF(keycode), READONLY},
     {"keysym", T_STRING, EVENT_OFF(keysym), READONLY},
