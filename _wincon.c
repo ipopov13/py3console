@@ -784,7 +784,7 @@ static PyTypeObject Console_Type = {
 /* event attributes */
 
 #define EVENT_OFF(x) offsetof(EventObject, x)
-
+/* Seems this is not needed any more
 static struct memberlist
 event_members[] = {
     {"type", T_STRING, EVENT_OFF(type), READONLY},
@@ -800,7 +800,7 @@ event_members[] = {
     {"serial", T_INT, EVENT_OFF(serial), READONLY},
     {"time", T_INT, EVENT_OFF(time), READONLY},
     {NULL}
-};
+}; */
 
 static PyObject*  
 event_getattr(ConsoleObject* self, char* name)
