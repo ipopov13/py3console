@@ -1,116 +1,46 @@
-_wincon.c(80): error C2054: expected '(' to follow 'staticforward'
-_wincon.c(80): error C2085: 'Console_Type': not in formal parameter list
-_wincon.c(96): error C2057: expected constant expression
-_wincon.c(97): error C2085: 'EventObject': not in formal parameter list
-_wincon.c(99): error C2061: syntax error: identifier 'staticforward'
-_wincon.c(113): error C2065: 'Console_Type': undeclared identifier
-_wincon.c(113): error C2223: left of '->tp_basicsize' must point to struct/union
-_wincon.c(113): error C2198: 'PyObject_Malloc': too few arguments for call
-_wincon.c(113): warning C4133: 'function': incompatible types - from 'int *' to 'PyTypeObject *'
-_wincon.c(273): error C2065: 'EventObject': undeclared identifier
-_wincon.c(273): error C2065: 'self': undeclared identifier
-_wincon.c(273): warning C4552: '*': result of expression not used
-_wincon.c(275): error C2065: 'self': undeclared identifier
-_wincon.c(275): error C2065: 'EventObject': undeclared identifier
-_wincon.c(275): error C2059: syntax error: ')'
-_wincon.c(276): error C2065: 'self': undeclared identifier
-_wincon.c(276): warning C4047: '==': 'int' differs in levels of indirection from 'void *'
-_wincon.c(279): error C2065: 'self': undeclared identifier
-_wincon.c(279): error C2223: left of '->type' must point to struct/union
-_wincon.c(281): error C2065: 'self': undeclared identifier
-_wincon.c(281): error C2223: left of '->serial' must point to struct/union
-_wincon.c(283): error C2065: 'self': undeclared identifier
-_wincon.c(283): error C2223: left of '->width' must point to struct/union
-_wincon.c(284): error C2065: 'self': undeclared identifier
-_wincon.c(284): error C2223: left of '->height' must point to struct/union
-_wincon.c(286): error C2065: 'self': undeclared identifier
-_wincon.c(286): error C2223: left of '->x' must point to struct/union
-_wincon.c(286): error C2223: left of '->y' must point to struct/union
-_wincon.c(288): error C2065: 'self': undeclared identifier
-_wincon.c(288): error C2223: left of '->character' must point to struct/union
-_wincon.c(290): error C2065: 'self': undeclared identifier
-_wincon.c(290): error C2223: left of '->keycode' must point to struct/union
-_wincon.c(291): error C2065: 'self': undeclared identifier
-_wincon.c(291): error C2223: left of '->keysym' must point to struct/union
-_wincon.c(293): error C2065: 'self': undeclared identifier
-_wincon.c(293): error C2223: left of '->char_' must point to struct/union
-_wincon.c(293): error C2223: left of '->character' must point to struct/union
-_wincon.c(296): error C2065: 'self': undeclared identifier
-_wincon.c(296): error C2223: left of '->widget' must point to struct/union
-_wincon.c(301): error C2065: 'self': undeclared identifier
-_wincon.c(301): error C2223: left of '->type' must point to struct/union
-_wincon.c(303): error C2065: 'self': undeclared identifier
-_wincon.c(303): error C2223: left of '->type' must point to struct/union
-_wincon.c(304): error C2065: 'self': undeclared identifier
-_wincon.c(304): error C2223: left of '->character' must point to struct/union
-_wincon.c(305): error C2065: 'self': undeclared identifier
-_wincon.c(305): error C2223: left of '->character' must point to struct/union
-_wincon.c(306): error C2065: 'self': undeclared identifier
-_wincon.c(306): error C2223: left of '->keysym' must point to struct/union
-_wincon.c(307): error C2065: 'self': undeclared identifier
-_wincon.c(307): error C2223: left of '->keycode' must point to struct/union
-_wincon.c(308): error C2065: 'self': undeclared identifier
-_wincon.c(308): error C2223: left of '->state' must point to struct/union
-_wincon.c(313): error C2065: 'self': undeclared identifier
-_wincon.c(313): error C2223: left of '->type' must point to struct/union
-_wincon.c(315): error C2065: 'self': undeclared identifier
-_wincon.c(315): error C2223: left of '->type' must point to struct/union
-_wincon.c(317): error C2065: 'self': undeclared identifier
-_wincon.c(317): error C2223: left of '->x' must point to struct/union
-_wincon.c(318): error C2065: 'self': undeclared identifier
-_wincon.c(318): error C2223: left of '->y' must point to struct/union
-_wincon.c(319): error C2065: 'self': undeclared identifier
-_wincon.c(319): error C2223: left of '->state' must point to struct/union
-_wincon.c(323): error C2065: 'self': undeclared identifier
-_wincon.c(323): error C2223: left of '->type' must point to struct/union
-_wincon.c(324): error C2065: 'self': undeclared identifier
-_wincon.c(324): error C2223: left of '->width' must point to struct/union
-_wincon.c(325): error C2065: 'self': undeclared identifier
-_wincon.c(325): error C2223: left of '->height' must point to struct/union
-_wincon.c(329): error C2065: 'self': undeclared identifier
-_wincon.c(329): error C2223: left of '->type' must point to struct/union
-_wincon.c(331): error C2065: 'self': undeclared identifier
-_wincon.c(331): error C2223: left of '->type' must point to struct/union
-_wincon.c(334): error C2065: 'self': undeclared identifier
-_wincon.c(334): error C2223: left of '->type' must point to struct/union
-_wincon.c(335): error C2065: 'self': undeclared identifier
-_wincon.c(335): error C2223: left of '->state' must point to struct/union
-_wincon.c(338): error C2065: 'self': undeclared identifier
-_wincon.c(338): error C2223: left of '->type' must point to struct/union
-_wincon.c(341): error C2065: 'self': undeclared identifier
-_wincon.c(341): warning C4312: 'type cast': conversion from 'int' to 'PyObject *' of greater size
-_wincon.c(345): error C2143: syntax error: missing ')' before '*'
-_wincon.c(345): error C2143: syntax error: missing '{' before '*'
-_wincon.c(345): error C2059: syntax error: ')'
-_wincon.c(346): error C2054: expected '(' to follow 'self'
 _wincon.c(418): warning C4013: 'PyArg_NoArgs' undefined; assuming extern returning int
 _wincon.c(741): warning C4013: 'PyInt_FromLong' undefined; assuming extern returning int
 _wincon.c(741): warning C4047: 'return': 'PyObject *' differs in levels of indirection from 'int'
 _wincon.c(743): warning C4013: 'Py_FindMethod' undefined; assuming extern returning int
 _wincon.c(743): warning C4047: 'return': 'PyObject *' differs in levels of indirection from 'int'
 _wincon.c(759): warning C4013: 'PyInt_AsLong' undefined; assuming extern returning int
-_wincon.c(770): error C2054: expected '(' to follow 'statichere'
-_wincon.c(770): error C2085: 'Console_Type': not in formal parameter list
-_wincon.c(770): error C2143: syntax error: missing ';' before '='
+_wincon.c(770): warning C4047: 'initializing': 'Py_ssize_t' differs in levels of indirection from 'char [8]'
+_wincon.c(770): warning C4113: 'destructor' differs in parameter lists from 'printfunc'
+_wincon.c(770): warning C4133: 'initializing': incompatible types - from 'destructor' to 'printfunc'
+_wincon.c(770): warning C4113: 'getattrfunc' differs in parameter lists from 'setattrfunc'
+_wincon.c(770): warning C4047: 'initializing': 'setattrfunc' differs in levels of indirection from 'getattrfunc'
+_wincon.c(770): warning C4047: 'initializing': 'PyAsyncMethods *' differs in levels of indirection from 'setattrfunc'
 _wincon.c(789): error C2079: 'event_members' uses undefined struct 'memberlist'
-_wincon.c(790): error C2065: 'EventObject': undeclared identifier
-_wincon.c(790): error C2059: syntax error: ')'
-_wincon.c(791): error C2059: syntax error: ','
-_wincon.c(792): error C2059: syntax error: ','
-_wincon.c(793): error C2059: syntax error: ','
-_wincon.c(794): error C2059: syntax error: ','
-_wincon.c(795): error C2059: syntax error: ','
-_wincon.c(796): error C2059: syntax error: ','
-_wincon.c(797): error C2059: syntax error: ','
-_wincon.c(798): error C2059: syntax error: ','
-_wincon.c(799): error C2059: syntax error: ','
-_wincon.c(800): error C2059: syntax error: ','
-_wincon.c(801): error C2059: syntax error: ','
-_wincon.c(803): error C2059: syntax error: '}'
+_wincon.c(790): error C2065: 'RO': undeclared identifier
+_wincon.c(791): error C2065: 'RO': undeclared identifier
+_wincon.c(792): error C2065: 'RO': undeclared identifier
+_wincon.c(793): error C2065: 'RO': undeclared identifier
+_wincon.c(794): error C2065: 'RO': undeclared identifier
+_wincon.c(795): error C2065: 'RO': undeclared identifier
+_wincon.c(796): error C2065: 'RO': undeclared identifier
+_wincon.c(797): error C2065: 'RO': undeclared identifier
+_wincon.c(798): error C2065: 'RO': undeclared identifier
+_wincon.c(800): error C2065: 'RO': undeclared identifier
+_wincon.c(801): error C2065: 'RO': undeclared identifier
+_wincon.c(803): error C2078: too many initializers
+_wincon.c(789): error C2078: too many initializers
+_wincon.c(790): warning C4047: 'initializing': 'int' differs in levels of indirection from 'char [5]'
 _wincon.c(808): warning C4013: 'PyMember_Get' undefined; assuming extern returning int
 _wincon.c(808): warning C4047: 'return': 'PyObject *' differs in levels of indirection from 'int'
 _wincon.c(814): warning C4013: 'PyMember_Set' undefined; assuming extern returning int
-_wincon.c(818): error C2143: syntax error: missing ')' before '*'
-_wincon.c(818): error C2143: syntax error: missing '{' before '*'
-_wincon.c(818): fatal error C1003: error count exceeds 100; stopping compilation
+_wincon.c(826): warning C4311: 'type cast': pointer truncation from 'EventObject *' to 'long'
+_wincon.c(828): warning C4013: 'PyString_FromString' undefined; assuming extern returning int
+_wincon.c(828): warning C4047: 'return': 'PyObject *' differs in levels of indirection from 'int'
+_wincon.c(831): warning C4047: 'initializing': 'Py_ssize_t' differs in levels of indirection from 'char [6]'
+_wincon.c(831): warning C4113: 'destructor' differs in parameter lists from 'printfunc'
+_wincon.c(831): warning C4133: 'initializing': incompatible types - from 'destructor' to 'printfunc'
+_wincon.c(831): warning C4113: 'getattrfunc' differs in parameter lists from 'setattrfunc'
+_wincon.c(831): warning C4047: 'initializing': 'setattrfunc' differs in levels of indirection from 'getattrfunc'
+_wincon.c(831): warning C4047: 'initializing': 'PyAsyncMethods *' differs in levels of indirection from 'setattrfunc'
+_wincon.c(831): warning C4047: 'initializing': 'PyNumberMethods *' differs in levels of indirection from 'reprfunc'
+_wincon.c(831): fatal error C1903: unable to recover from previous error(s); stopping compilation
+Internal Compiler Error in C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\bin\HostX86\x64\cl.exe.  You will be prompted to send an error report to Microsoft later.
+INTERNAL COMPILER ERROR in 'C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\bin\HostX86\x64\cl.exe'
+    Please choose the Technical Support command on the Visual C++
+    Help menu, or open the Technical Support help file for more information
 error: command 'C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\BuildTools\\VC\\Tools\\MSVC\\14.14.26428\\bin\\HostX86\\x64\\cl.exe' failed with exit status 2

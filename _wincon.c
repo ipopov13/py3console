@@ -77,7 +77,7 @@ typedef struct {
     int serial;
 } ConsoleObject;
 
-staticforward PyTypeObject Console_Type;
+static PyTypeObject Console_Type;
 
 /* event type definition (from uiToolkit) */
 typedef struct {
@@ -96,7 +96,7 @@ typedef struct {
     char character[2];
 } EventObject;
 
-staticforward PyTypeObject Event_Type;
+static PyTypeObject Event_Type;
 
 /* ==================================================================== */
 /* console instances */
@@ -767,7 +767,7 @@ console_setattr(ConsoleObject* self, char* name, PyObject* value)
     return -1;
 }
 
-statichere PyTypeObject Console_Type = {
+static PyTypeObject Console_Type = {
     PyObject_HEAD_INIT(NULL)
     0, /* ob_size */
     "Console", /* tp_name */
@@ -828,7 +828,7 @@ event_repr(EventObject* self)
     return PyString_FromString(buffer);
 }
 
-statichere PyTypeObject Event_Type = {
+static PyTypeObject Event_Type = {
     PyObject_HEAD_INIT(NULL)
     0, /* ob_size */
     "Event", /* tp_name */
