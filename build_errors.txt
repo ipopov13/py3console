@@ -20,7 +20,8 @@ _wincon.c(893): warning C4013: 'PyUnicode_AsString' undefined; assuming extern r
 _wincon.c(893): warning C4047: 'function': 'const char *' differs in levels of indirection from 'int'
 _wincon.c(893): warning C4024: 'strdup': different types for formal and actual parameter 1
 _wincon.c(930): warning C4113: 'char *(__cdecl *)(char *)' differs in parameter lists from 'char *(__cdecl *)(FILE *,FILE *,const char *)'
-_wincon.c(949): error C2061: syntax error: identifier 'init_wincon'
-_wincon.c(949): error C2059: syntax error: ';'
-_wincon.c(949): error C2059: syntax error: '<parameter-list>'
+_wincon.c(978): error C2039: 'ob_type': is not a member of '_typeobject'
+c:\users\ivanpopov\anaconda3\include\object.h(346): note: see declaration of '_typeobject'
+_wincon.c(979): error C2039: 'ob_type': is not a member of '_typeobject'
+c:\users\ivanpopov\anaconda3\include\object.h(346): note: see declaration of '_typeobject'
 error: command 'C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\BuildTools\\VC\\Tools\\MSVC\\14.14.26428\\bin\\HostX86\\x64\\cl.exe' failed with exit status 2

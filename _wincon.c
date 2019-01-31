@@ -945,12 +945,38 @@ static PyMethodDef _functions[] = {
     {NULL, NULL}
 };
 
-DL_EXPORT(void)
-init_wincon()
+static struct PyModuleDef moduledef = {
+        PyModuleDef_HEAD_INIT,
+        "_wincon",     /* m_name */
+        "Console for Python3+",  /* m_doc */
+        -1,                  /* m_size */
+        _functions,    /* m_methods */
+        NULL,                /* m_reload */
+        NULL,                /* m_traverse */
+        NULL,                /* m_clear */
+        NULL,                /* m_free */
+};
+
+static PyObject *
+moduleinit(void)
 {
-    /* Patch object type */
+    PyObject *m;
+
+    m = PyModule_Create(&moduledef);
+
+    if (m == NULL)
+        return NULL;
+		
+  return m;
+}
+
+//DL_EXPORT(void)
+PyMODINIT_FUNC
+PyInit_wincon(void)
+{
+    // Patch object type 
     Console_Type.ob_type = &PyType_Type;
     Event_Type.ob_type = &PyType_Type;
 
-    Py_InitModule("_wincon", _functions);
+    moduleinit();
 }
