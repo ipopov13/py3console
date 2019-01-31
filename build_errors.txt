@@ -24,8 +24,6 @@ _wincon.c(808): warning C4013: 'PyMember_Get' undefined; assuming extern returni
 _wincon.c(808): warning C4047: 'return': 'PyObject *' differs in levels of indirection from 'int'
 _wincon.c(814): warning C4013: 'PyMember_Set' undefined; assuming extern returning int
 _wincon.c(826): warning C4311: 'type cast': pointer truncation from 'EventObject *' to 'long'
-_wincon.c(828): warning C4013: 'PyString_FromString' undefined; assuming extern returning int
-_wincon.c(828): warning C4047: 'return': 'PyObject *' differs in levels of indirection from 'int'
 _wincon.c(831): warning C4047: 'initializing': 'Py_ssize_t' differs in levels of indirection from 'char [6]'
 _wincon.c(831): warning C4113: 'destructor' differs in parameter lists from 'printfunc'
 _wincon.c(831): warning C4133: 'initializing': incompatible types - from 'destructor' to 'printfunc'

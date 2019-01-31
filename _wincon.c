@@ -825,7 +825,7 @@ event_repr(EventObject* self)
         (long) self
         );
 
-    return PyString_FromString(buffer);
+    return PyUnicode_FromString(buffer);
 }
 
 static PyTypeObject Event_Type = {
@@ -883,13 +883,13 @@ rl_function(char* prompt)
         goto done;
     }
 
-    if (!PyString_Check(res)) {
+    if (!PyUnicode_Check(res)) {
         PyErr_SetString(PyExc_ValueError, "readline must return string");
         PyErr_Print();
         goto done;
     }
 
-    p = strdup(PyString_AsString(res));
+    p = strdup(PyUnicode_AsString(res));
     if (!p) {
         PyErr_NoMemory();
         PyErr_Print();
