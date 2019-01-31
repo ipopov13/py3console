@@ -852,7 +852,7 @@ static PyObject* rl_readline;
 static PyThreadState *rl_threadstate;
 
 static char*
-rl_function(char* prompt)
+rl_function(FILE *sys_stdin, FILE *sys_stdout, const char* prompt)
 {
     PyObject* res;
     char* p;

@@ -17,7 +17,6 @@ C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.
 _wincon.c
 _wincon.c(826): warning C4311: 'type cast': pointer truncation from 'EventObject *' to 'long'
 _wincon.c(891): warning C4133: 'function': incompatible types - from 'PyObject *' to 'const char *'
-_wincon.c(928): warning C4113: 'char *(__cdecl *)(char *)' differs in parameter lists from 'char *(__cdecl *)(FILE *,FILE *,const char *)'
 C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\bin\HostX86\x64\link.exe /nologo /INCREMENTAL:NO /LTCG /DLL /MANIFEST:EMBED,ID=2 /MANIFESTUAC:NO /LIBPATH:C:\Users\IvanPopov\Anaconda3\libs /LIBPATH:C:\Users\IvanPopov\Anaconda3\PCbuild\amd64 "/LIBPATH:C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\lib\x64" "/LIBPATH:C:\Program Files (x86)\Windows Kits\10\lib\10.0.17134.0\ucrt\x64" "/LIBPATH:C:\Program Files (x86)\Windows Kits\10\lib\10.0.17134.0\um\x64" /EXPORT:PyInit__wincon build\temp.win-amd64-3.6\Release\_wincon.obj /OUT:build\lib.win-amd64-3.6\_wincon.cp36-win_amd64.pyd /IMPLIB:build\temp.win-amd64-3.6\Release\_wincon.cp36-win_amd64.lib
    Creating library build\temp.win-amd64-3.6\Release\_wincon.cp36-win_amd64.lib and object build\temp.win-amd64-3.6\Release\_wincon.cp36-win_amd64.exp
 Generating code
