@@ -1,3 +1,5 @@
+See http://python3porting.com/cextensions.html for instructions!
+
 _wincon.c(418): warning C4013: 'PyArg_NoArgs' undefined; assuming extern returning int
 _wincon.c(741): warning C4013: 'PyInt_FromLong' undefined; assuming extern returning int
 _wincon.c(741): warning C4047: 'return': 'PyObject *' differs in levels of indirection from 'int'
