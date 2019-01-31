@@ -890,7 +890,7 @@ rl_function(char* prompt)
         goto done;
     }
 
-    p = strdup(PyUnicode_AsString(res));
+    p = strdup(PyUnicode_AsUTF8String(res));
     if (!p) {
         PyErr_NoMemory();
         PyErr_Print();
