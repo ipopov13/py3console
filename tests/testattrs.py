@@ -7,15 +7,12 @@
 
 import Console
 
-print("Imported, getting console...")
 c = Console.getconsole()
 
 INK = 0x1f
 
-print("Gotten it, working...")
 c.title("Console Attributes")
 
-print("Set title")
 c.page(INK)
 
 c.text(0, 0, chr(0xfe) + " Console Attributes " + chr(0xfe), INK)

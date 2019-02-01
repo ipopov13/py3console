@@ -44,21 +44,16 @@ def getconsole(buffer=1):
     installed.  Otherwise, this returns a handle to the current
     console buffer"""
     c = Console(buffer)
-    print("Init class done...")
     # try to redirect stdout and stderr
     try:
-        print("Trying stdout...",sys.stdout.isatty())
-#        if sys.stdout.isatty():
-#            sys.stdout = c
+        if sys.stdout.isatty():
+            sys.stdout = c
     except:
-        print("Failed stdout!")
         raise
     try:
-        print("Trying stderr...", sys.stderr.isatty())
-#        if sys.stderr.isatty():
-#            sys.stderr = c
+        if sys.stderr.isatty():
+            sys.stderr = c
     except:
-        print("Failed stderr!")
         raise
 
     return c
