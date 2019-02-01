@@ -737,7 +737,7 @@ static PyObject*
 console_getattr(ConsoleObject* self, char* name)
 {
     if (name[0] == 's' && strcmp(name, "softspace") == 0)
-	  return PyLong_FromLong(self->softspace);
+      return PyLong_FromLong(self->softspace);
 
     return PyObject_GenericGetAttr((PyObject*) self,(PyObject*)  name);
 }
@@ -754,12 +754,12 @@ console_setattr(ConsoleObject* self, char* name, PyObject* value)
     }
 
     if (!strcmp(name, "softspace")) {
-	long v;
-	v = PyLong_AsLong(value);
-	if (v == -1 && PyErr_Occurred())
+    long v;
+    v = PyLong_AsLong(value);
+    if (v == -1 && PyErr_Occurred())
             return -1;
-	self->softspace = v;
-	return 0;
+    self->softspace = v;
+    return 0;
     }
 
     PyErr_SetString(PyExc_AttributeError, name);
@@ -769,13 +769,39 @@ console_setattr(ConsoleObject* self, char* name, PyObject* value)
 static PyTypeObject Console_Type = {
     PyVarObject_HEAD_INIT(NULL, 0)
     "Console", /* tp_name */
-    0, /* tp_itemsize */
     sizeof(ConsoleObject), /* tp_size */
+    0,
     /* methods */
     (destructor)console_dealloc, /* tp_dealloc */
     NULL, /* tp_print */
     (getattrfunc)console_getattr, /* tp_getattr */
     (setattrfunc)console_setattr, /* tp_setattr */
+    NULL, /* tp_compare */
+    0, /* tp_repr */
+    0,                    /* tp_as_number */
+    0,                    /* tp_as_sequence */
+    0,                    /* tp_as_mapping */
+    0,                    /* tp_hash */
+    0,        /* tp_call */
+    0,                    /* tp_str */
+    PyObject_GenericGetAttr,        /* tp_getattro */
+    0,                    /* tp_setattro */
+    0,                    /* tp_as_buffer */
+    0, /* tp_flags */
+    0,                    /* tp_doc */
+    0,                /* tp_traverse */
+    0,                    /* tp_clear */
+    0,                    /* tp_richcompare */
+    0,                    /* tp_weaklistoffset */
+    0,                    /* tp_iter */
+    0,                    /* tp_iternext */
+    console_methods,                    /* tp_methods */
+    0,                /* tp_members */
+    0,                /* tp_getset */
+    0,                    /* tp_base */
+    0,                    /* tp_dict */
+    0,        /* tp_descr_get */
+    0,                    /* tp_descr_set */
 };
 
 /* ==================================================================== */
@@ -828,17 +854,40 @@ event_repr(EventObject* self)
 }
 
 static PyTypeObject Event_Type = {
-    PyVarObject_HEAD_INIT(NULL, 0)
-    "Event", /* tp_name */
-    0, /* tp_itemsize */
-    sizeof(EventObject), /* tp_size */
-    /* methods */
+    PyVarObject_HEAD_INIT(NULL,0)
+    "Event",
+    sizeof(PyMethodDescrObject),
+    0,
     (destructor)event_dealloc, /* tp_dealloc */
     NULL, /* tp_print */
     (getattrfunc)event_getattr, /* tp_getattr */
     (setattrfunc)event_setattr, /* tp_setattr */
     NULL, /* tp_compare */
-    (reprfunc)event_repr /* tp_repr */
+    (reprfunc)event_repr, /* tp_repr */
+    0,                    /* tp_as_number */
+    0,                    /* tp_as_sequence */
+    0,                    /* tp_as_mapping */
+    0,                    /* tp_hash */
+    0,        /* tp_call */
+    0,                    /* tp_str */
+    PyObject_GenericGetAttr,        /* tp_getattro */
+    0,                    /* tp_setattro */
+    0,                    /* tp_as_buffer */
+    0, /* tp_flags */
+    0,                    /* tp_doc */
+    0,                /* tp_traverse */
+    0,                    /* tp_clear */
+    0,                    /* tp_richcompare */
+    0,                    /* tp_weaklistoffset */
+    0,                    /* tp_iter */
+    0,                    /* tp_iternext */
+    0,                    /* tp_methods */
+    event_members,                /* tp_members */
+    0,                /* tp_getset */
+    0,                    /* tp_base */
+    0,                    /* tp_dict */
+    0,        /* tp_descr_get */
+    0,                    /* tp_descr_set */
 };
 
 /* ==================================================================== */
@@ -968,6 +1017,6 @@ PyInit__wincon(void)
 
     if (m == NULL)
         return NULL;
-		
+        
   return m;
 }
