@@ -10,9 +10,9 @@ import Console
 print("Imported, getting console...")
 c = Console.getconsole()
 
-print("Gotten it, working...")
 INK = 0x1f
 
+print("Gotten it, working...")
 c.title("Console Attributes")
 
 print("Set title")

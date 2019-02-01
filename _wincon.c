@@ -685,7 +685,6 @@ static PyObject*
 console_title(ConsoleObject* self, PyObject* args)
 {
     /* set/get title */
-
     char* title = NULL;
     if (!PyArg_ParseTuple(args, "|s", &title))
         return NULL;
@@ -783,35 +782,35 @@ static PyTypeObject Console_Type = {
 /* event attributes */
 
 #define EVENT_OFF(x) offsetof(EventObject, x)
-/* Seems this is not needed any more
-static struct memberlist
+
+struct PyMemberDef
 event_members[] = {
-    {"type", T_STRING, EVENT_OFF(type), READONLY},
-    {"keycode", T_INT, EVENT_OFF(keycode), READONLY},
-    {"keysym", T_STRING, EVENT_OFF(keysym), READONLY},
-    {"char", T_STRING, EVENT_OFF(char_), READONLY},
-    {"state", T_INT, EVENT_OFF(state), READONLY},
-    {"x", T_INT, EVENT_OFF(x), READONLY},
-    {"y", T_INT, EVENT_OFF(y), READONLY},
-    {"width", T_INT, EVENT_OFF(width), READONLY},
-    {"height", T_INT, EVENT_OFF(height), READONLY},
+    {"type", T_STRING, EVENT_OFF(type), READONLY,"type"},
+    {"keycode", T_INT, EVENT_OFF(keycode), READONLY,"keycode"},
+    {"keysym", T_STRING, EVENT_OFF(keysym), READONLY,"keysym"},
+    {"char", T_STRING, EVENT_OFF(char_), READONLY,"char"},
+    {"state", T_INT, EVENT_OFF(state), READONLY,"state"},
+    {"x", T_INT, EVENT_OFF(x), READONLY,"x"},
+    {"y", T_INT, EVENT_OFF(y), READONLY,"y"},
+    {"width", T_INT, EVENT_OFF(width), READONLY,"width"},
+    {"height", T_INT, EVENT_OFF(height), READONLY,"height"},
     {"widget", T_OBJECT, EVENT_OFF(widget)},
-    {"serial", T_INT, EVENT_OFF(serial), READONLY},
-    {"time", T_INT, EVENT_OFF(time), READONLY},
+    {"serial", T_INT, EVENT_OFF(serial), READONLY,"serial"},
+    {"time", T_INT, EVENT_OFF(time), READONLY,"time"},
     {NULL}
-}; */
+};
 
 static PyObject*  
-event_getattr(ConsoleObject* self, char* name)
+event_getattr(EventObject* self, char* name)
 {
     //return PyMember_GetOne((char*)self, event_members, name);
-    return PyMember_GetOne((char*)self, (PyMemberDef *) name);
+    return PyMember_GetOne((const char *) self, event_members);
 }
 
 static int
-event_setattr(ConsoleObject* self, char* name, PyObject* value)
+event_setattr(EventObject* self, char* name, PyObject* value)
 {
-    return PyMember_SetOne((char*)self, (PyMemberDef *)  name, value);
+    return PyMember_SetOne((char *) self, event_members, value);
 }
 
 static PyObject *
