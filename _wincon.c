@@ -718,12 +718,12 @@ console_methods[] = {
     /* stream output */
     {"write", (PyCFunction) console_write, 1},
     {"pos", (PyCFunction) console_pos, 1},
-    {"home", (PyCFunction) console_home, 0},
+    {"home", (PyCFunction) console_home, 1},
 
     /* events */
-    {"get", (PyCFunction) console_get, 0},
-    {"getchar", (PyCFunction) console_getchar, 0},
-    {"peek", (PyCFunction) console_peek, 0},
+    {"get", (PyCFunction) console_get, 1},
+    {"getchar", (PyCFunction) console_getchar, 1},
+    {"peek", (PyCFunction) console_peek, 1},
 
     /* misc. settings */
     {"cursor", (PyCFunction) console_cursor, 1},
