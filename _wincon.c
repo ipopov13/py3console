@@ -115,7 +115,7 @@ console_new(PyObject* self_, PyObject* args)
         return NULL;
     
     /* FIXME: add error checking! */
-
+	
     AllocConsole();
 
     /* setup outbut buffers */
@@ -129,7 +129,10 @@ console_new(PyObject* self_, PyObject* args)
         self->out = GetStdHandle(STD_OUTPUT_HANDLE);
 
     /* setup input buffers */
-    self->in = GetStdHandle(STD_INPUT_HANDLE);
+    //self->in = GetStdHandle(STD_INPUT_HANDLE);
+	self->in = CreateFile("CONIN$",  
+        GENERIC_READ, FILE_SHARE_READ|FILE_SHARE_WRITE, 
+        NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
     GetConsoleMode(self->in, &self->inmode);
     SetConsoleMode(self->in, ENABLE_WINDOW_INPUT | ENABLE_MOUSE_INPUT);
 
@@ -593,24 +596,29 @@ console_getchar(ConsoleObject* self, PyObject* args)
     /* get next character from queue */
 
     INPUT_RECORD event;
-    DWORD count = 0;
+    DWORD count;
+	DWORD available;
     int status;
-
+	
     if (!PyArg_ParseTuple(args,""))
         return NULL;
-
-    for (;;) {
-        status = ReadConsoleInput(self->in, &event, 1, &count);
-        if (status && count == 1 && event.EventType == KEY_EVENT &&
-            event.Event.KeyEvent.bKeyDown) {
-            char* sym = keysym(event.Event.KeyEvent.wVirtualKeyCode);
-            if (sym && sym[0])
-                return Py_BuildValue("s", sym);
-            else
-                return Py_BuildValue(
-                    "c", event.Event.KeyEvent.uChar.AsciiChar
-                    );
-        }
+		
+    while (0 == 0) {
+	    GetNumberOfConsoleInputEvents(self->in, &available);
+        if (available > 0) {
+		    status = ReadConsoleInput(self->in, &event, 1, &count);
+    	        if (status && count == 1 && event.EventType == KEY_EVENT &&
+                event.Event.KeyEvent.bKeyDown) {
+                char* sym = keysym(event.Event.KeyEvent.wVirtualKeyCode);
+                 if (sym && sym[0])
+                    return Py_BuildValue("s", sym);
+                else
+                    return Py_BuildValue(
+                        "c", event.Event.KeyEvent.uChar.AsciiChar
+                        );
+            }	
+		}
+		Sleep(1);
     }
 
     return NULL;
